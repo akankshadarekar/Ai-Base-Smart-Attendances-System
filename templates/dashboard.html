@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+</head>
+<body>
+
+<div class="header">
+    <h2>✅ Control Panel</h2>
+</div>
+
+<h1 class="title">Welcome to AI Smart Attendance System</h1>
+
+<div class="container">
+
+    <div class="card">
+        <img src="{{ url_for('static', filename='images/registration.jpg') }}">
+        <h3>Train Model</h3>
+               <a href="/train_model">
+    <button>Train Face Model</button>
+</a>
+    </div>
+
+    <div class="card">
+        <img src="{{ url_for('static', filename='images/attendances.jpg') }}">
+        <h3>Take Attendance</h3>
+        <a href="/take_attendance">
+            <button>Start</button>
+        </a>
+    </div>
+
+    <div class="card">
+        <img src="{{ url_for('static', filename='images/view.jpg') }}">
+        <h3>View Attendance</h3>
+        <a href="/view_attendance">
+            <button>View</button>
+        </a>
+    </div>
+
+</div>
+
+<div class="exit">
+    <a href="/logout">
+        <button class="exit-btn">EXIT</button>
+    </a>
+</div>
+
+</body>
+</html>

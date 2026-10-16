@@ -1,0 +1,73 @@
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/admin_dashboard.css') }}">
+
+<div class="header">
+    <h2>Admin Dashboard</h2>
+</div>
+
+<h1 class="title">Smart Attendance System</h1>
+<!-- TOAST NOTIFICATIONS -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <div id="toast-container">
+      {% for category, message in messages %}
+        <div class="toast {{ category }}">
+          {{ message }}
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+<script>
+setTimeout(() => {
+    const toast = document.getElementById("toast-container");
+    if (toast) {
+        toast.remove();
+    }
+}, 3500);
+</script>
+
+<div class="container">
+
+   
+    <div class="card">
+        <img src="/static/images/view.jpg">
+        <h3>View Attendance</h3>
+        <a href="/view_attendance">
+            <button>View Records</button>
+        </a>
+    </div>
+
+    <div class="card">
+        <img src="/static/images/excel.jpg">
+        <h3>Download Excel</h3>
+        <a href="/download_excel">
+            <button>Download</button>
+        </a>
+    </div>
+
+    <div class="card">
+        <img src="/static/images/pdf.jpg">
+        <h3>Download PDF</h3>
+        <a href="/download_pdf">
+            <button>Download</button>
+        </a>
+    </div>
+
+    <div class="card">
+        <img src="/static/images/students.jpg">
+        <h3>Manage Students</h3>
+        <a href="/students">
+            <button>Manage</button>
+        </a>
+    </div>
+
+    <div class="card">
+        <img src="/static/images/logout.jpg">
+        <h3>Logout</h3>
+        <a href="/logout">
+            <button class="logout-btn">Logout</button>
+        </a>
+    </div>
+
+</div>

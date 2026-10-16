@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shweta Darekar | Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+body{
+background:#0f0f1a;
+color:white;
+}
+/* NAVBAR */
+header{
+background:#111122;
+padding:20px 10%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:sticky;
+top:0;
+z-index:1000;
+}
+header h1{
+color:#ff4ecd;
+}
+nav a{
+color:white;
+text-decoration:none;
+margin-left:25px;
+transition:0.3s;
+font-weight:500;
+}
+nav a:hover{
+color:#ff4ecd;
+}
+/* HERO */
+.hero{
+height:90vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+background:linear-gradient(135deg,#1a0033,#330033);
+}
+.hero h2{
+font-size:48px;
+}
+.hero span{
+color:#ff4ecd;
+}
+.hero p{
+margin-top:10px;
+font-size:20px;
+color:#ddd;
+min-height:25px;
+}
+.btn{
+margin-top:25px;
+background:#ff4ecd;
+color:white;
+padding:12px 30px;
+border-radius:30px;
+text-decoration:none;
+font-weight:500;
+transition:0.3s;
+}
+.btn:hover{
+transform:scale(1.1);
+background:#7c3aed;
+}
+/* SECTIONS */
+section{
+padding:80px 10%;
+}
+.section-title{
+font-size:32px;
+margin-bottom:30px;
+color:#ff4ecd;
+}
+/* ABOUT */
+.about p{
+max-width:700px;
+line-height:1.7;
+color:#ccc;
+}
+/* SKILLS */
+.skills{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+.skill{
+background:#1e1e35;
+padding:20px;
+border-radius:10px;
+}
+.skill h4{
+margin-bottom:10px;
+}
+.progress{
+background:#333;
+border-radius:10px;
+overflow:hidden;
+}
+.progress div{
+height:10px;
+background:linear-gradient(90deg,#ff4ecd,#7c3aed);
+}
+/* PROJECTS */
+.projects{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+.project{
+background:#1e1e35;
+padding:25px;
+border-radius:12px;
+transition:0.3s;
+}
+.project:hover{
+transform:translateY(-10px);
+box-shadow:0 10px 25px rgba(0,0,0,0.5);
+}
+.project h3{
+color:#7c3aed;
+margin-bottom:10px;
+}
+.project p{
+color:#ccc;
+}
+.project a{
+display:inline-block;
+margin-top:10px;
+margin-right:10px;
+text-decoration:none;
+color:#ff4ecd;
+}
+/* EDUCATION */
+.education{
+background:#1e1e35;
+padding:25px;
+border-radius:12px;
+max-width:600px;
+}
+/* CONTACT */
+.contact p{
+margin-top:10px;
+}
+.contact a{
+color:#ff4ecd;
+text-decoration:none;
+}
+.contact a:hover{
+text-decoration:underline;
+}
+/* FOOTER */
+footer{
+text-align:center;
+padding:20px;
+background:#111122;
+margin-top:40px;
+color:#aaa;
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Shweta Darekar</h1>
+<nav>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#dsa">DSA</a>
+<a href="#education">Education</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+<section class="hero">
+<h2>Hello, I'm <span>Shweta Darekar</span></h2>
+<p id="typing"></p>
+<a href="#" class="btn">Download Resume</a>
+</section>
+<section id="about" class="about">
+<h2 class="section-title">About Me</h2>
+<p>
+I am Shweta Darekar, a second year Computer Engineering student at
+Marathwada Mitra Mandal Institute of Technology (MMIT), Pune.
+I am passionate about web development and problem solving.
+I enjoy building responsive websites, exploring new technologies,
+and strengthening my coding skills through projects and DSA practice.
+</p>
+</section>
+<section id="skills">
+<h2 class="section-title">Skills</h2>
+<div class="skills">
+<div class="skill">
+<h4>HTML</h4>
+<div class="progress"><div style="width:90%"></div></div>
+</div>
+<div class="skill">
+<h4>CSS</h4>
+<div class="progress"><div style="width:85%"></div></div>
+</div>
+<div class="skill">
+<h4>JavaScript</h4>
+<div class="progress"><div style="width:75%"></div></div>
+</div>
+<div class="skill">
+<h4>Python</h4>
+<div class="progress"><div style="width:70%"></div></div>
+</div>
+<div class="skill">
+<h4>Java</h4>
+<div class="progress"><div style="width:70%"></div></div>
+</div>
+<div class="skill">
+<h4>Data Structures</h4>
+<div class="progress"><div style="width:65%"></div></div>
+</div>
+</div>
+</section>
+<section id="projects">
+<h2 class="section-title">Projects</h2>
+<div class="projects">
+<div class="project">
+<h3>Personal Portfolio Website</h3>
+<p>Responsive portfolio website built using HTML, CSS and JavaScript.</p>
+<a href="https://github.com/shwetadarekar24" target="_blank">GitHub</a>
+</div>
+<div class="project">
+<h3>JavaScript DOM Projects</h3>
+<p>Interactive applications built using DOM manipulation.</p>
+<a href="https://github.com/shwetadarekar24" target="_blank">GitHub</a>
+</div>
+<div class="project">
+<h3>DSA Practice</h3>
+<p>Regularly solving coding problems to improve problem solving skills.</p>
+<a href="https://www.geeksforgeeks.org/" target="_blank">GFG</a>
+</div>
+</div>
+</section>
+<section id="dsa">
+<h2 class="section-title">DSA & Coding Streak</h2>
+<div class="projects">
+<div class="project">
+<h3>GeeksforGeeks Streak</h3>
+<p>
+Actively solving Data Structures and Algorithms problems through
+#geekstreak challenge to improve problem solving and logical thinking.
+</p>
+<a href="https://www.geeksforgeeks.org/" target="_blank">View GFG</a>
+</div>
+<div class="project">
+<h3>GitHub Contributions</h3>
+<p>
+Regularly pushing code, projects and practice problems on GitHub
+while learning Web Development and DSA.
+</p>
+<a href="https://github.com/shwetadarekar24" target="_blank">GitHub</a>
+</div>
+<div class="project">
+<h3>Topics Practiced</h3>
+<p>
+Sliding Window • Prefix XOR • Arrays • HashMap • Two Pointer Technique
+</p>
+</div>
+</div>
+</section>
+<section id="education">
+<h2 class="section-title">Education</h2>
+<div class="education">
+<p><strong>B.E. Computer Engineering</strong></p>
+<p>Marathwada Mitra Mandal Institute of Technology (MMIT), Pune</p>
+<p>Currently in Second Year</p>
+</div>
+</section>
+<section id="contact" class="contact">
+<h2 class="section-title">Contact</h2>
+<p>Email:
+<a href="mailto:shweta.darekar24@mmit.edu.in">
+shweta.darekar24@mmit.edu.in
+</a>
+</p>
+<p>LinkedIn:
+<a href="https://linkedin.com/in/shweta-darekar-b6926a377" target="_blank">
+linkedin.com/in/shweta-darekar-b6926a377
+</a>
+</p>
+<p>GitHub:
+<a href="https://github.com/shwetadarekar24" target="_blank">
+github.com/shwetadarekar24
+</a>
+</p>
+</section>
+<footer>
+<p> 2026 Shweta Darekar | Portfolio</p>
+</footer>
+<script>
+const words=["Web Developer","Problem Solver","Computer Engineering Student"];
+let i=0;
+let j=0;
+let currentWord="";
+let isDeleting=false;
+function type(){
+currentWord=words[i];
+if(isDeleting){
+j--;
+}else{
+j++;
+}
+document.getElementById("typing").textContent=currentWord.substring(0,j);
+if(!isDeleting && j===currentWord.length){
+isDeleting=true;
+setTimeout(type,1000);
+return;
+}
+if(isDeleting && j===0){
+isDeleting=false;
+i++;
+if(i===words.length){
+i=0;
+}
+}
+setTimeout(type,120);
+}
+type();
+</script>
+</body>
+</html>

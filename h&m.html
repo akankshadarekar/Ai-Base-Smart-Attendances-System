@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H&M Style Store</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:#fff;color:#111}
+
+nav{position:sticky;top:0;background:#fff;padding:15px 40px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #eee;z-index:1000}
+.logo{font-size:26px;font-weight:700;color:#e50010}
+.menu{display:flex;gap:20px}
+.menu a{text-decoration:none;color:#111;font-size:14px}
+.icons{display:flex;gap:15px;cursor:pointer}
+
+.hero{height:85vh;background:url('https://images.unsplash.com/photo-1521334884684-d80222895322?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;display:flex;align-items:center;justify-content:center;color:#fff;position:relative}
+.hero::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,0.35)}
+.hero-content{position:relative;text-align:center}
+.hero h1{font-size:52px}
+.hero p{margin:10px 0;font-size:18px}
+.hero button{padding:12px 25px;border:none;background:#fff;color:#000;cursor:pointer}
+
+.grid{display:grid;grid-template-columns:1fr 1fr}
+.grid img{width:100%;height:420px;object-fit:cover;transition:.4s}
+.grid img:hover{transform:scale(1.05)}
+
+.banner{padding:60px;text-align:center;background:#f8f8f8}
+.banner h2{font-size:32px;margin-bottom:10px}
+.banner p{color:#555}
+
+.products{padding:40px}
+.products h2{text-align:center;margin-bottom:25px}
+.product-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.card{border:1px solid #eee;padding:10px;text-align:center;transition:.3s}
+.card:hover{box-shadow:0 5px 20px rgba(0,0,0,0.1)}
+.card img{width:100%;height:260px;object-fit:cover}
+.card button{margin-top:10px;padding:8px 12px;border:none;background:black;color:#fff;cursor:pointer}
+
+.cart{position:fixed;right:-400px;top:0;width:300px;height:100%;background:#fff;box-shadow:-2px 0 10px rgba(0,0,0,0.1);padding:20px;transition:.4s;overflow:auto}
+.cart.active{right:0}
+.cart-item{display:flex;justify-content:space-between;margin:10px 0}
+
+footer{background:#111;color:#fff;padding:40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
+footer h4{margin-bottom:10px}
+footer p{font-size:14px;margin:5px 0}
+
+@media(max-width:768px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav>
+<div class="logo">H&M</div>
+<div class="menu">
+<a href="#">Ladies</a>
+<a href="#">Men</a>
+<a href="#">Kids</a>
+<a href="#">Home</a>
+<a href="#">Beauty</a>
+</div>
+<div class="icons">
+<span onclick="toggleCart()">🛒 (<span id="count">0</span>)</span>
+</div>
+</nav>
+
+<section class="hero">
+<div class="hero-content">
+<h1>Summer Collection 2026</h1>
+<p>Elegant styles starting ₹799</p>
+<button>Shop Now</button>
+</div>
+</section>
+
+<section class="grid">
+<img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=800&q=80">
+<img src="https://images.unsplash.com/photo-1503341504253-dff4815485f1?auto=format&fit=crop&w=800&q=80">
+</section>
+
+<section class="banner">
+<h2>Shop the Latest Trends</h2>
+<p>Discover new arrivals inspired by global fashion</p>
+</section>
+
+<section class="products">
+<h2>Trending Now</h2>
+<div class="product-grid" id="products"></div>
+</section>
+
+<div class="cart" id="cart">
+<h3>Your Cart</h3>
+<div id="cartItems"></div>
+<h4>Total: ₹<span id="total">0</span></h4>
+<button onclick="checkout()">Checkout</button>
+</div>
+
+<footer>
+<div>
+<h4>Shop</h4>
+<p>Ladies</p><p>Men</p><p>Kids</p>
+</div>
+<div>
+<h4>Info</h4>
+<p>About</p><p>Careers</p>
+</div>
+<div>
+<h4>Help</h4>
+<p>Customer Service</p>
+</div>
+</footer>
+
+<script>
+const data=[
+{id:1,name:'Floral Summer Dress',price:999,img:'https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=600&q=80'},
+{id:2,name:'White Casual Shirt',price:799,img:'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=600&q=80'},
+{id:3,name:'Stylish Crop Top',price:599,img:'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=600&q=80'},
+{id:4,name:'Blue Denim Jeans',price:1299,img:'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=600&q=80'},
+{id:5,name:'Winter Jacket',price:1999,img:'https://images.unsplash.com/photo-1520975916090-3105956dac38?auto=format&fit=crop&w=600&q=80'},
+{id:6,name:'Pleated Skirt',price:899,img:'https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?auto=format&fit=crop&w=600&q=80'},
+{id:8,name:'Black T-shirt',price:1499,img:'https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=600&q=80'},
+{id:12,name:'Long Coat',price:2499,img:'https://images.unsplash.com/photo-1539533113208-f6df8cc8b543?auto=format&fit=crop&w=600&q=80'}
+];
+
+let cart=[];
+
+function render(){
+let html='';
+data.forEach(p=>{
+html+=`<div class='card'>
+<img src='${p.img}'>
+<h4>${p.name}</h4>
+<p>₹${p.price}</p>
+<button onclick='add(${p.id})'>Add to Cart</button>
+</div>`});
+document.getElementById('products').innerHTML=html;
+}
+
+function add(id){
+const item=data.find(x=>x.id==id);
+cart.push(item);
+updateCart();
+}
+
+function updateCart(){
+document.getElementById('count').innerText=cart.length;
+let items='';
+let total=0;
+cart.forEach((c,i)=>{
+total+=c.price;
+items+=`<div class='cart-item'>${c.name} ₹${c.price} <span onclick='removeItem(${i})'>❌</span></div>`;
+});
+document.getElementById('cartItems').innerHTML=items;
+document.getElementById('total').innerText=total;
+}
+
+function removeItem(i){
+cart.splice(i,1);
+updateCart();
+}
+
+function toggleCart(){
+document.getElementById('cart').classList.toggle('active');
+}
+
+function checkout(){
+alert('Order Placed Successfully');
+cart=[];
+updateCart();
+}
+
+render();
+</script>
+
+</body>
+</html>

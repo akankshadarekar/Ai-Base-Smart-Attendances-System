@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Smart Attendance System</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/home.css') }}">
+</head>
+<body>
+
+<h1 class="title">AI Smart Attendance System</h1>
+
+<div class="container">
+
+    <div class="card">
+        <h2>Admin Panel</h2>
+
+        <a href="/admin_login">
+            <button>Admin Login</button>
+        </a>
+    </div>
+
+    <div class="card">
+        <h2>Student Panel</h2>
+
+        <a href="/student_login">
+            <button>Student Login</button>
+        </a>
+
+        <a href="/student_register">
+            <button class="register">
+                Register
+            </button>
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

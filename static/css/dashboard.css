@@ -1,0 +1,73 @@
+body {
+    margin: 0;
+    font-family: Arial;
+    background-color: #111;
+    color: white;
+    text-align: center;
+}
+
+.header {
+    background: black;
+    padding: 15px;
+    color: lime;
+    font-size: 20px;
+}
+
+.title {
+    color: yellow;
+    margin-top: 20px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin-top: 50px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: #222;
+    padding: 20px;
+    border-radius: 10px;
+    width: 200px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    width: 120px;
+    height: 120px;
+}
+
+.card h3 {
+    margin-top: 10px;
+}
+
+.card button {
+    margin-top: 10px;
+    padding: 10px;
+    background: black;
+    color: yellow;
+    border: 1px solid yellow;
+    cursor: pointer;
+}
+
+.card button:hover {
+    background: yellow;
+    color: black;
+}
+
+.exit {
+    margin-top: 40px;
+}
+
+.exit-btn {
+    padding: 10px 30px;
+    background: black;
+    color: white;
+    border: 1px solid white;
+}

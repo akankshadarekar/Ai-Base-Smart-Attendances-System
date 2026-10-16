@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Student Login</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+<body>
+
+<div class="login-box">
+
+<h2>Student Login</h2>
+
+<form action="/student_login_check" method="POST">
+
+    <input type="text"
+           name="id"
+           placeholder="Student ID"
+           required>
+
+    <input type="password"
+           name="password"
+           placeholder="Password"
+           required>
+
+    <button type="submit">
+        Login
+    </button>
+
+</form>
+
+<br>
+
+<a href="/face_student_login">
+    <button type="button">
+        Login With Face Recognition
+    </button>
+</a>
+
+<p>
+    <a href="/student_register">
+        Register New Student
+    </a>
+</p>
+
+<p>
+    <a href="/">
+        <button type="button" class="back-btn">
+            Back to Home
+        </button>
+    </a>
+</p>
+</div>
+
+</body>
+</html>

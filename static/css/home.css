@@ -1,0 +1,40 @@
+body{
+    margin:0;
+    background:#0f172a;
+    font-family:Arial;
+}
+
+.title{
+    text-align:center;
+    color:white;
+    margin-top:50px;
+}
+
+.container{
+    display:flex;
+    justify-content:center;
+    gap:50px;
+    margin-top:100px;
+}
+
+.card{
+    width:300px;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    text-align:center;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    border:none;
+    background:#2563eb;
+    color:white;
+    border-radius:8px;
+}
+
+.register{
+    background:#16a34a;
+}

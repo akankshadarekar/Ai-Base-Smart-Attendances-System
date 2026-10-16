@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manage Students</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial;
+        }
+
+        body{
+            background:#0f172a;
+            color:white;
+            padding:30px;
+        }
+
+        h1{
+            text-align:center;
+            margin-bottom:25px;
+        }
+
+        table{
+            width:90%;
+            margin:auto;
+            border-collapse:collapse;
+            background:white;
+            color:black;
+            border-radius:10px;
+            overflow:hidden;
+        }
+
+        th{
+            background:#2563eb;
+            color:white;
+            padding:15px;
+        }
+
+        td{
+            padding:12px;
+            text-align:center;
+            border-bottom:1px solid #ddd;
+        }
+
+        .edit{
+            background:green;
+            color:white;
+            padding:8px 12px;
+            text-decoration:none;
+            border-radius:5px;
+        }
+
+        .delete{
+            background:red;
+            color:white;
+            padding:8px 12px;
+            text-decoration:none;
+            border-radius:5px;
+        }
+
+        .back{
+            display:block;
+            width:220px;
+            margin:25px auto;
+            text-align:center;
+            padding:12px;
+            background:#2563eb;
+            color:white;
+            text-decoration:none;
+            border-radius:8px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Manage Students</h1>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Password</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+
+    {% for row in data %}
+    <tr>
+        <td>{{ row[0] }}</td>
+        <td>{{ row[1] }}</td>
+        <td>{{ row[2] }}</td>
+
+        <td>
+            <a class="edit"
+               href="/edit_student/{{ row[0] }}">
+               Edit
+            </a>
+        </td>
+
+        <td>
+            <a class="delete"
+               href="/delete_student/{{ row[0] }}"
+               onclick="return confirm('Delete Student?')">
+               Delete
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+<a href="/admin_dashboard" class="back">
+    Back To Dashboard
+</a>
+
+</body>
+</html>

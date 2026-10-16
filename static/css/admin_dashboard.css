@@ -1,0 +1,228 @@
+/* ==================================
+   GLOBAL RESET
+================================== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#0b0b0b;
+    color:white;
+    min-height:100vh;
+}
+
+/* ==================================
+   HEADER (CONTROL PANEL)
+================================== */
+.header{
+    text-align:center;
+    padding:20px;
+    background:black;
+    box-shadow:0 0 15px rgba(0,255,0,0.4);
+}
+
+.header h2{
+    color:#00ff66;
+    font-size:30px;
+    font-weight:bold;
+}
+
+/* ==================================
+   TITLE
+================================== */
+.title{
+    text-align:center;
+    margin:20px 0;
+    font-size:32px;
+    color:#ffee00;
+    text-shadow:0 0 10px rgba(255,255,0,0.4);
+}
+
+/* ==================================
+   CONTAINER (CARD GRID)
+================================== */
+.container{
+    width:90%;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+    padding:30px 0;
+}
+
+/* ==================================
+   CARD DESIGN (GLASS + DARK UI)
+================================== */
+.card{
+    background:rgba(255,255,255,0.06);
+    backdrop-filter:blur(10px);
+    border-radius:20px;
+    padding:20px;
+    text-align:center;
+    box-shadow:0 0 15px rgba(0,0,0,0.6);
+    transition:0.4s ease;
+    border:1px solid rgba(255,255,255,0.1);
+
+    /* animation */
+    opacity:0;
+    transform:translateY(30px);
+    animation:fadeUp 0.6s forwards;
+}
+
+/* hover effect */
+.card:hover{
+    transform:translateY(-12px) scale(1.03);
+    box-shadow:0 0 25px rgba(0,255,100,0.4);
+    border:1px solid rgba(0,255,100,0.3);
+}
+
+/* card animation */
+@keyframes fadeUp{
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* delay for each card */
+.card:nth-child(1){ animation-delay:0.1s; }
+.card:nth-child(2){ animation-delay:0.2s; }
+.card:nth-child(3){ animation-delay:0.3s; }
+.card:nth-child(4){ animation-delay:0.4s; }
+.card:nth-child(5){ animation-delay:0.5s; }
+.card:nth-child(6){ animation-delay:0.6s; }
+
+/* ==================================
+   CARD IMAGE
+================================== */
+.card img{
+    width:120px;
+    height:120px;
+    object-fit:contain;
+    margin-bottom:15px;
+    filter:drop-shadow(0 0 5px rgba(0,255,100,0.4));
+}
+
+/* ==================================
+   CARD TITLE
+================================== */
+.card h3{
+    margin:10px 0;
+    font-size:20px;
+    color:#ffffff;
+}
+
+/* ==================================
+   BUTTON STYLE
+================================== */
+.card button{
+    margin-top:10px;
+    padding:10px 20px;
+    border:none;
+    border-radius:8px;
+
+    background:transparent;
+    color:#00ff66;
+    border:2px solid #00ff66;
+
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.card button:hover{
+    background:#00ff66;
+    color:black;
+    box-shadow:0 0 15px #00ff66;
+}
+
+/* ==================================
+   EXIT BUTTON
+================================== */
+.exit{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.exit button{
+    padding:12px 30px;
+    border:2px solid red;
+    background:transparent;
+    color:red;
+    font-weight:bold;
+    border-radius:8px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.exit button:hover{
+    background:red;
+    color:white;
+    box-shadow:0 0 15px red;
+}
+
+/* ==================================
+   RESPONSIVE
+================================== */
+@media(max-width:768px){
+    .title{
+        font-size:24px;
+    }
+
+    .header h2{
+        font-size:22px;
+    }
+}
+/* ================================
+   TOAST NOTIFICATION SYSTEM
+================================ */
+
+#toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+
+/* Toast Box */
+.toast {
+    min-width: 260px;
+    margin-bottom: 10px;
+    padding: 14px 18px;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: bold;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+
+    transform: translateX(120%);
+    animation: slideIn 0.5s forwards, fadeOut 0.5s 3s forwards;
+}
+
+/* Success */
+.toast.success {
+    background: linear-gradient(135deg, #00c853, #00ff66);
+    color: black;
+}
+
+/* Error */
+.toast.error {
+    background: linear-gradient(135deg, #ff1744, #ff5252);
+}
+
+/* Slide In */
+@keyframes slideIn {
+    to {
+        transform: translateX(0);
+    }
+}
+
+/* Fade Out */
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        transform: translateX(120%);
+    }
+}

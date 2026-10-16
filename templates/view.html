@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Attendance Records</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#0f172a,#1e293b,#334155);
+    padding:40px;
+}
+
+.container{
+    width:100%;
+    text-align:center;
+}
+
+.header{
+    margin-bottom:30px;
+}
+
+.header h1{
+    color:#00ffff;
+    font-size:40px;
+    margin-bottom:10px;
+    text-shadow:0 0 15px rgba(0,255,255,0.5);
+}
+
+.header p{
+    color:#d1d5db;
+    font-size:18px;
+}
+
+.table-card{
+    width:850px;
+    margin:0 auto;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(15px);
+    border-radius:20px;
+    padding:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.4);
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+thead{
+    background:linear-gradient(45deg,#00c6ff,#0072ff);
+}
+
+th{
+    color:white;
+    padding:15px;
+    font-size:18px;
+}
+
+td{
+    color:white;
+    padding:15px;
+    text-align:center;
+    border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+tbody tr:nth-child(even){
+    background:rgba(255,255,255,0.03);
+}
+
+tbody tr:hover{
+    background:rgba(255,255,255,0.08);
+    transition:0.3s;
+}
+
+.back{
+    margin-top:30px;
+}
+
+.back a{
+    text-decoration:none;
+    padding:12px 25px;
+    border-radius:30px;
+    background:linear-gradient(45deg,#ff512f,#dd2476);
+    color:white;
+    font-weight:bold;
+    display:inline-block;
+    transition:0.3s;
+}
+
+.back a:hover{
+    transform:translateY(-3px);
+    box-shadow:0 0 20px rgba(255,80,80,0.5);
+}
+
+@media(max-width:900px){
+
+    .table-card{
+        width:95%;
+    }
+
+    table{
+        font-size:14px;
+    }
+
+    th,td{
+        padding:10px;
+    }
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Attendance Records</h1>
+        <p>Admin Attendance Management System</p>
+    </div>
+
+    <div class="table-card">
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>Student ID</th>
+                    <th>Name</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+            {% for row in data %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+            </tr>
+            {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <div class="back">
+        <a href="/admin_dashboard">
+            ← Back to Dashboard
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>

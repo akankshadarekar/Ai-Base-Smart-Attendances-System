@@ -1,0 +1,169 @@
+/* ==========================
+   RESET
+========================== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#0f172a,#111827,#1e293b);
+    color:white;
+}
+
+/* ==========================
+   HEADER
+========================== */
+.header{
+    text-align:center;
+    padding:20px;
+    background:rgba(0,0,0,0.4);
+    backdrop-filter:blur(15px);
+    box-shadow:0 0 20px rgba(0,255,255,0.2);
+}
+
+.header h2{
+    color:#00ffff;
+    font-size:32px;
+    letter-spacing:1px;
+}
+
+/* ==========================
+   TITLE
+========================== */
+.title{
+    text-align:center;
+    margin:25px 0;
+    font-size:38px;
+    color:#ffffff;
+    text-shadow:0 0 15px rgba(0,255,255,0.6);
+}
+
+/* ==========================
+   CARD GRID
+========================== */
+.container{
+    width:90%;
+    margin:40px auto;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:30px;
+    padding-bottom:40px;
+}
+/* ==========================
+   CARD
+========================== */
+.card{
+    width:350px;
+
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,0.15);
+    border-radius:25px;
+    padding:25px;
+    text-align:center;
+    transition:0.4s;
+    box-shadow:0 10px 30px rgba(0,0,0,0.4);
+
+    opacity:0;
+    transform:translateY(30px);
+    animation:slideUp 0.6s forwards;
+}
+.card:nth-child(1){animation-delay:.1s;}
+.card:nth-child(2){animation-delay:.2s;}
+.card:nth-child(3){animation-delay:.3s;}
+.card:nth-child(4){animation-delay:.4s;}
+.card:nth-child(5){animation-delay:.5s;}
+
+.card:hover{
+    transform:translateY(-10px) scale(1.03);
+    box-shadow:0 15px 35px rgba(0,255,255,0.3);
+}
+
+@keyframes slideUp{
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* ==========================
+   IMAGE
+========================== */
+.card img{
+    width:110px;
+    height:110px;
+    object-fit:contain;
+    margin-bottom:15px;
+    filter:drop-shadow(0 0 10px rgba(0,255,255,0.5));
+}
+
+/* ==========================
+   TEXT
+========================== */
+.card h3{
+    margin-bottom:10px;
+    color:#00ffff;
+    font-size:22px;
+}
+
+.card p{
+    color:#d1d5db;
+    font-size:14px;
+    margin-bottom:15px;
+}
+
+/* ==========================
+   BUTTON
+========================== */
+.card button{
+    padding:12px 24px;
+    border:none;
+    border-radius:10px;
+    background:linear-gradient(45deg,#00ffff,#00bfff);
+    color:#000;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.card button:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 20px #00ffff;
+}
+
+/* Logout Button */
+.logout-btn{
+    background:linear-gradient(45deg,#ff4d4d,#ff0000) !important;
+    color:white !important;
+}
+
+.logout-btn:hover{
+    box-shadow:0 0 20px red !important;
+}
+
+.flash-message{
+    width: 400px;
+    margin: 15px auto;
+    padding: 15px;
+    background: #00e5ff;
+    color: black;
+    text-align: center;
+    border-radius: 10px;
+    font-weight: bold;
+}
+.success{
+    width:400px;
+    margin:20px auto;
+    padding:15px;
+    text-align:center;
+    background:#00c853;
+    color:white;
+    border-radius:10px;
+    font-weight:bold;
+}

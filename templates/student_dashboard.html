@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/student_dashboard.css') }}">
+</head>
+<body>
+
+<div class="header">
+    <h2>Student Dashboard</h2>
+</div>
+
+<h1 class="title">Smart Attendance System</h1>
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+    {% for message in messages %}
+        <div class="success">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+{% endwith %}
+<div class="container">
+
+```
+<!-- MARK ATTENDANCE -->
+<div class="card">
+    <img src="{{ url_for('static', filename='images/attendance.jpg') }}" alt="">
+    <h3>Mark Attendance</h3>
+    <p>Mark your attendance using Face Recognition</p>
+    <a href="/mark_attendance">
+    <button>Mark Now</button>
+</a>
+</div>
+
+<!-- VIEW ATTENDANCE -->
+<div class="card">
+    <img src="{{ url_for('static', filename='images/view1.jpg') }}" alt="">
+    <h3>View Attendance</h3>
+    <p>Check your attendance records</p>
+    <a href="/student_attendance">
+        <button>View Records</button>
+    </a>
+</div>
+
+<!-- LOGOUT -->
+<div class="card">
+    <img src="{{ url_for('static', filename='images/logout.jpg') }}" alt="">
+    <h3>Logout</h3>
+    <p>Exit Student Portal</p>
+    <a href="/student_logout">
+        <button class="logout-btn">Logout</button>
+    </a>
+</div>
+```
+
+</div>
+
+</body>
+</html>
